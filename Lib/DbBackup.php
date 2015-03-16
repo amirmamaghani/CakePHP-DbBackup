@@ -108,6 +108,7 @@ Class DbBackup {
 			'password' => null,
 			'database' => null,
 			'prefix' => '',
+            'port' => 3306
 		);
 
 		if (is_string($source)) {
@@ -344,12 +345,13 @@ Class DbBackup {
 		}
 		$date = date('YmdHis', strtotime($step['date']));
 		$host = $step['host'];
+		$port = $step['port'];
 		$database = $step['database'];
 		$template = self::conf('filename_template');
 		if (empty($template)) {
 			$template = "{{host}}.{{database}}.{{date}}.sql.gz";
 		}
-		return self::replaceTemplate($template, compact('host', 'database', 'date'));
+		return self::replaceTemplate($template, compact('host', 'database', 'date', 'port'));
 	}
 
 	/**
