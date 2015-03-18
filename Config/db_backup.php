@@ -124,7 +124,7 @@ $config = array(
 			// default: everything which has not been assigned a different configuration
 			//   (should be last)
 			'default' => array(
-				// no retain?  we delete after 1 day
+				// no retain?  we delete after 10 day
 				'retain' => array(
                     'daily' => '-10 days',
                 ),
